@@ -1,0 +1,11 @@
+{
+    debug
+}
+
+localhost {
+    log
+    encode br
+    file_server {
+        browse
+    }
+}
