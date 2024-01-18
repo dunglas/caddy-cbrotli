@@ -4,6 +4,9 @@ This module for [the Caddy web server](https://caddyserver.com) provides support
 
 It uses [the reference implementation of Brotli](https://brotli.org/) (written in C), through [the Go module provided by Google](https://pkg.go.dev/github.com/google/brotli/go/cbrotli).
 
+[![Tests](https://github.com/dunglas/caddy-cbrotli/actions/workflows/tests.yaml/badge.svg)](https://github.com/dunglas/caddy-cbrotli/actions/workflows/tests.yaml)
+[![Go Reference](https://pkg.go.dev/badge/github.com/dunglas/caddy-cbrotli.svg)](https://pkg.go.dev/github.com/dunglas/caddy-cbrotli)
+
 ## Install
 
 1. Install [cbrotli](https://github.com/google/brotli/tree/master/c). On Mac run `brew install brotli`. On Debian and Ubuntu, run `apt install libbrotli-dev`.
