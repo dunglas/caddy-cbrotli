@@ -1,13 +1,10 @@
 package caddycbrotli
 
 import (
-	"errors"
 	"io"
 
 	"github.com/google/brotli/go/cbrotli"
 )
-
-var errNoWriter = errors.New("no writer")
 
 type encoder struct {
 	writer  *cbrotli.Writer
@@ -19,10 +16,6 @@ func newEncoder(options cbrotli.WriterOptions) *encoder {
 }
 
 func (e *encoder) Close() error {
-	if e.writer == nil {
-		return errNoWriter
-	}
-
 	err := e.writer.Close()
 	e.writer = nil
 
@@ -30,18 +23,10 @@ func (e *encoder) Close() error {
 }
 
 func (e *encoder) Flush() error {
-	if e.writer == nil {
-		return errNoWriter
-	}
-
 	return e.writer.Flush()
 }
 
 func (e *encoder) Write(p []byte) (n int, err error) {
-	if e.writer == nil {
-		return 0, errNoWriter
-	}
-
 	return e.writer.Write(p)
 }
 
