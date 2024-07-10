@@ -26,6 +26,20 @@ It uses [the reference implementation of Brotli](https://brotli.org/) (written i
     xcaddy build \
         --with github.com/dunglas/caddy-cbrotli
     ```
+### Alternative: build custom Docker image
+
+```Dockerfile
+FROM caddy:2-builder AS builder
+RUN apk update && \
+    apk add brotli-dev gcc musl-dev && \
+    CGO_ENABLED=1 \
+    xcaddy build \
+    --with github.com/dunglas/caddy-cbrotli
+
+FROM caddy:2
+RUN apk add --no-cache brotli-libs
+COPY --from=builder /usr/bin/caddy /usr/bin/caddy
+```
 
 ## Usage
 
