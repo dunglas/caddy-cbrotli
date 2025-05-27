@@ -4,7 +4,7 @@ go 1.21
 
 require (
 	github.com/caddyserver/caddy/v2 v2.7.6
-	github.com/google/brotli/go/cbrotli v0.0.0-20240116120200-adbc354d23af
+	github.com/google/brotli/go/cbrotli v1.1.0
 	github.com/stretchr/testify v1.8.4
 )
 
